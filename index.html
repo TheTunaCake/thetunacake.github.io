@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TunaCake LLC</title>
+    <meta
+        name="description"
+        content="TunaCake LLC is an independent software company developing mobile applications."
+    >
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background:
+                radial-gradient(circle at top left, #fff0f4 0%, transparent 35%),
+                radial-gradient(circle at bottom right, #eef4ff 0%, transparent 40%),
+                #ffffff;
+            color: #202124;
+        }
+
+        main {
+            width: min(680px, calc(100% - 40px));
+            padding: 64px 0;
+        }
+
+        .brand {
+            font-size: clamp(52px, 10vw, 88px);
+            font-weight: 800;
+            letter-spacing: -0.055em;
+            margin: 0;
+            color: #ff4778;
+        }
+
+        .company {
+            margin-top: 6px;
+            color: #777;
+            font-size: 15px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .intro {
+            margin-top: 42px;
+            font-size: clamp(21px, 3vw, 27px);
+            line-height: 1.5;
+            font-weight: 500;
+        }
+
+        .product {
+            margin-top: 46px;
+            padding: 26px 28px;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            border-radius: 22px;
+            background: rgba(255, 255, 255, 0.72);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.05);
+        }
+
+        .product h2 {
+            margin: 0 0 10px;
+            font-size: 25px;
+        }
+
+        .product p {
+            margin: 0;
+            color: #5f6368;
+            font-size: 17px;
+            line-height: 1.6;
+        }
+
+        .coming-soon {
+            display: inline-block;
+            margin-top: 18px;
+            padding: 7px 12px;
+            border-radius: 999px;
+            background: #fff0f4;
+            color: #d93667;
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .contact {
+            margin-top: 42px;
+            font-size: 16px;
+        }
+
+        .contact a {
+            color: #ff4778;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .contact a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            margin-top: 64px;
+            color: #999;
+            font-size: 13px;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <h1 class="brand">TunaCake</h1>
+        <div class="company">TunaCake LLC</div>
+
+        <div class="intro">
+            An independent software company building thoughtfully designed mobile applications.
+        </div>
+
+        <section class="product">
+            <h2>AmiiNest</h2>
+
+            <p>
+                An iPhone app for amiibo collection management and NFC utilities.
+            </p>
+
+            <span class="coming-soon">Coming Soon</span>
+        </section>
+
+        <div class="contact">
+            Contact:
+            <a href="mailto:contact@tunacake.com">contact@tunacake.com</a>
+        </div>
+
+        <footer>
+            © 2026 TunaCake LLC. All rights reserved.
+        </footer>
+    </main>
+</body>
+</html>
