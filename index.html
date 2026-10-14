@@ -37,8 +37,9 @@
     .wrap { width: min(100% - 44px, 880px); margin: 0 auto; }
     header { border-bottom: 1px solid rgba(222, 179, 195, .3); background: rgba(255,255,255,.74); }
     .topbar { display: flex; justify-content: space-between; align-items: center; gap: 22px; padding: 19px 0; }
-    .brand { font-weight: 750; text-decoration: none; font-size: 1.25rem; letter-spacing: -.03em; color: var(--ink); }
-    .brand span { color: var(--pink); }
+    .brand { display: inline-flex; align-items: center; gap: 10px; font-weight: 750; text-decoration: none; font-size: 1.25rem; letter-spacing: -.03em; color: var(--ink); white-space: nowrap; }
+    .brand img { width: 40px; height: 40px; object-fit: contain; flex-shrink: 0; }
+    .brand span span { color: var(--pink); }
     nav { display: flex; flex-wrap: wrap; gap: 10px 23px; }
     nav a { font-size: .91rem; font-weight: 600; text-decoration: none; color: #66606d; }
     nav a:hover { color: var(--pink); }
@@ -86,7 +87,10 @@
 <body>
   <header>
     <div class="wrap topbar">
-      <a class="brand" href="/">Tuna<span>Cake</span> LLC</a>
+      <a class="brand" href="/">
+        <img src="/favicon.png" alt="" width="40" height="40">
+        <span>Tuna<span>Cake</span> LLC</span>
+      </a>
       <nav aria-label="Primary navigation">
         <a href="#about">About</a>
         <a href="#amiinest">AmiiNest</a>
