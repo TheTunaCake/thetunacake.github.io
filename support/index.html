@@ -19,44 +19,216 @@
       --white: #ffffff;
       --blush: #fff8fb;
     }
+
     * { box-sizing: border-box; }
     body {
       margin: 0;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
       color: var(--ink);
       background: linear-gradient(165deg, #fff8fb 0%, #fff 47%, #fff9f6 100%);
-      line-height: 1.65;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
     }
-    a { color: #a84b7c; }
+    a { color: #a84b7c; text-underline-offset: 3px; }
     a:hover { color: #842e60; }
+    a:focus-visible { outline: 2px solid var(--pink); outline-offset: 4px; border-radius: 3px; }
     .wrap { width: min(100% - 44px, 880px); margin: 0 auto; }
-    header { border-bottom: 1px solid rgba(222, 179, 195, .3); background: rgba(255,255,255,.74); }
-    .topbar { display: flex; justify-content: space-between; align-items: center; gap: 22px; padding: 19px 0; }
-    .brand { display: inline-flex; align-items: center; gap: 10px; font-weight: 750; text-decoration: none; font-size: 1.25rem; letter-spacing: -.03em; color: var(--ink); white-space: nowrap; }
+
+    /* Shared header: the same layout and colors as Home and Privacy. */
+    header {
+      border-bottom: 1px solid rgba(222, 179, 195, .3);
+      background: rgba(255, 255, 255, .74);
+    }
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 22px;
+      padding: 19px 0;
+    }
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--ink);
+      font-size: 1.25rem;
+      font-weight: 750;
+      letter-spacing: -.03em;
+      text-decoration: none;
+      white-space: nowrap;
+    }
     .brand img { width: 40px; height: 40px; object-fit: contain; flex-shrink: 0; }
     .brand span span { color: var(--pink); }
     nav { display: flex; flex-wrap: wrap; gap: 10px 23px; }
-    nav a { font-size: .91rem; font-weight: 600; text-decoration: none; color: #66606d; }
+    nav a { color: #66606d; font-size: .91rem; font-weight: 600; text-decoration: none; }
     nav a:hover { color: var(--pink); }
-    .page-head { padding: 56px 0 28px; text-align: center; }
-    .eyebrow { color: #b85d8b; font-size: .82rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
-    h1 { font-size: clamp(2rem, 6vw, 2.8rem); line-height: 1.15; letter-spacing: -.04em; margin: 8px 0 6px; }
-    .page-head p { color: var(--muted); margin: 0; }
+
+    /* Roomy heading, consistent with the Privacy Policy page. */
+    .page-head { padding: 76px 0 36px; text-align: center; }
+    .eyebrow {
+      color: #b85d8b;
+      font-size: .82rem;
+      font-weight: 750;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+    h1 {
+      margin: 10px 0 12px;
+      font-size: clamp(2.8rem, 7vw, 3.8rem);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -.055em;
+    }
+    .page-head p {
+      margin: 0 auto;
+      max-width: 630px;
+      color: var(--muted);
+      font-size: 1.04rem;
+    }
+
+    /* Cards match the site's gentle corners, thin borders, and shadows. */
     section + section { margin-top: 24px; }
-    .card { background: var(--white); border: 1px solid var(--border); border-radius: 24px; box-shadow: 0 12px 40px rgba(169,112,139,.065); padding: 35px 38px; }
-    .card h2 { font-size: 1.48rem; line-height: 1.25; letter-spacing: -.025em; margin: 0 0 12px; }
-    .card h3 { font-size: 1.05rem; line-height: 1.35; margin: 24px 0 6px; }
-    .card h2 + h3 { margin-top: 8px; }
-    .card p { color: var(--muted); margin: 0 0 12px; }
-    .card p:last-child { margin-bottom: 0; }
-    .contact { font-size: 1.08rem; font-weight: 650; }
-    footer { color: #87818c; font-size: .88rem; text-align: center; padding: 38px 0 48px; }
+    .card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 26px;
+      box-shadow: 0 12px 40px rgba(169, 112, 139, .065);
+      padding: 39px 44px 42px;
+    }
+    .card h2 {
+      margin: 0 0 8px;
+      font-size: 1.55rem;
+      line-height: 1.25;
+      letter-spacing: -.03em;
+    }
+    .card p { color: var(--muted); margin: 0; }
+    .section-intro { margin-bottom: 23px !important; }
+
+    /* A subtle numbered rhythm makes longer FAQs easy to scan. */
+    .faq-item {
+      display: grid;
+      grid-template-columns: 38px minmax(0, 1fr);
+      gap: 17px;
+      padding: 23px 0;
+      border-top: 1px solid var(--border);
+    }
+    .faq-item:first-child { border-top: 0; padding-top: 1px; }
+    .faq-item:last-child { padding-bottom: 0; }
+    .faq-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border: 1px solid #f9dce8;
+      border-radius: 11px;
+      background: #ffecf3;
+      color: #a15482;
+      font-size: .83rem;
+      font-weight: 750;
+      line-height: 1;
+      font-variant-numeric: tabular-nums;
+    }
+    .faq-item h3 {
+      margin: 2px 0 8px;
+      font-size: 1.06rem;
+      line-height: 1.4;
+      font-weight: 750;
+      letter-spacing: -.012em;
+    }
+    .faq-item p { font-size: .98rem; line-height: 1.76; }
+
+    /* Simple action card, borrowing the blush surface from Home's features. */
+    .contact-panel {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 22px;
+      margin-top: 24px;
+      padding: 22px 23px;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: var(--blush);
+    }
+    .contact-panel p { flex: 1 1 270px; font-size: .98rem; line-height: 1.7; }
+    .contact-email {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 17px;
+      border: 1px solid #f1cedf;
+      border-radius: 999px;
+      background: var(--white);
+      color: #a84b7c;
+      font-size: .95rem;
+      font-weight: 700;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: border-color .15s ease, background .15s ease;
+    }
+    .contact-email:hover, .contact-email:focus-visible {
+      border-color: #d6a0bb;
+      background: #fffafd;
+      text-decoration: underline;
+    }
+
+    /* Shared footer: exactly the same structure and styling as Home / Privacy. */
+    .site-footer {
+      margin-top: 42px;
+      padding: 27px 0 45px;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+    .footer-links {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px 19px;
+      margin-bottom: 13px;
+    }
+    .footer-links a {
+      color: #a84b7c;
+      font-size: .9rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: color .15s ease;
+    }
+    .footer-links a:hover, .footer-links a:focus-visible {
+      color: #842e60;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+    .footer-separator {
+      width: 3px;
+      height: 3px;
+      border-radius: 50%;
+      background: #d5beca;
+      flex-shrink: 0;
+    }
+    .footer-copyright {
+      margin: 0;
+      color: #87818c;
+      font-size: .84rem;
+      line-height: 1.5;
+    }
+
     @media (max-width: 600px) {
       .wrap { width: min(100% - 30px, 880px); }
       .topbar { flex-direction: column; gap: 8px; padding: 14px 0; }
       nav { justify-content: center; }
-      .page-head { padding: 40px 0 22px; }
-      .card { padding: 26px 23px; border-radius: 19px; }
+      .page-head { padding: 52px 0 28px; }
+      h1 { font-size: clamp(2.65rem, 11vw, 3.2rem); }
+      .page-head p { font-size: .98rem; }
+      .card { border-radius: 20px; padding: 27px 22px 32px; }
+      .card h2 { font-size: 1.4rem; }
+      .faq-item { grid-template-columns: 33px minmax(0, 1fr); gap: 12px; padding: 20px 0; }
+      .faq-number { width: 31px; height: 31px; border-radius: 10px; font-size: .77rem; }
+      .faq-item h3 { font-size: 1.02rem; margin-top: 1px; }
+      .faq-item p { font-size: .96rem; }
+      .contact-panel { padding: 20px 19px; gap: 16px; }
+      .contact-email { white-space: normal; text-align: center; }
     }
   </style>
 </head>
@@ -81,43 +253,85 @@
       <p>Answers to common questions, and how to reach us.</p>
     </div>
 
-    <section class="card">
-      <h2>Frequently Asked Questions</h2>
-
-      <h3>Which NFC tags work with AmiiNest?</h3>
-      <p>AmiiNest works with blank NTAG215 tags only. Cards, stickers, and coin tags can all work. NTAG213 and NTAG216 tags are not supported.</p>
-
-      <h3>Does AmiiNest include encryption keys or amiibo files?</h3>
-      <p>No. AmiiNest does not provide encryption keys or amiibo .bin files. You import your own key file, and load amiibo data by importing a .bin file or scanning an amiibo you own.</p>
-
-      <h3>Can a tag be rewritten?</h3>
-      <p>No. Once a write succeeds, the tag is locked and cannot be rewritten.</p>
-
-      <h3>How do write credits work?</h3>
-      <p>New users start with 5 free writes. A write is used only when writing succeeds, and write credits never expire. You can get more by watching an ad (+1 write), buying a write pack, or unlocking Lifetime Unlimited.</p>
-
-      <h3>Will my write credits move to a new iPhone?</h3>
-      <p>No. Write credits are stored on the iPhone where you got them and cannot be transferred. Lifetime Unlimited can be restored on your other iPhones using the same Apple Account.</p>
-
-      <h3>I bought Lifetime Unlimited, but the App doesn't show it.</h3>
-      <p>In AmiiNest, go to Settings and tap Restore Purchases. If it still doesn't appear, tap Sync with App Store in the Support section and sign in with the Apple Account you used to buy it.</p>
-
-      <h3>Writing failed. What should I do?</h3>
-      <p>Keep the tag still near the top of your iPhone. If the connection is lost, move the tag slightly and AmiiNest will continue. A failed write does not use a write credit. If the App says the tag is locked or has already been used, please use a new blank NTAG215 tag.</p>
-
-      <h3>Which iPhones are supported?</h3>
-      <p>AmiiNest requires an iPhone running iOS 18 or later.</p>
+    <section class="card" aria-labelledby="faq-title">
+      <h2 id="faq-title">Frequently Asked Questions</h2>
+      <p class="section-intro">Helpful answers for getting started and troubleshooting.</p>
+      <div class="faq-list">
+        <div class="faq-item">
+          <span class="faq-number" aria-hidden="true">01</span>
+          <div>
+            <h3>Which NFC tags work with AmiiNest?</h3>
+            <p>AmiiNest works with blank NTAG215 tags only. Cards, stickers, and coin tags can all work. NTAG213 and NTAG216 tags are not supported.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <span class="faq-number" aria-hidden="true">02</span>
+          <div>
+            <h3>Does AmiiNest include encryption keys or amiibo files?</h3>
+            <p>No. AmiiNest does not provide encryption keys or amiibo .bin files. You import your own key file and load amiibo data by importing a .bin file or scanning an amiibo you own.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <span class="faq-number" aria-hidden="true">03</span>
+          <div>
+            <h3>Can a tag be rewritten?</h3>
+            <p>No. Once a write succeeds, the tag is locked and cannot be rewritten.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <span class="faq-number" aria-hidden="true">04</span>
+          <div>
+            <h3>How do write credits work?</h3>
+            <p>New users start with 5 free writes. A credit is used only when writing succeeds, and write credits never expire. You can get more by watching an ad (+1 write), buying a write pack, or unlocking Lifetime Unlimited.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <span class="faq-number" aria-hidden="true">05</span>
+          <div>
+            <h3>Will my write credits move to a new iPhone?</h3>
+            <p>Write credits are stored on your iPhone and don't automatically sync between devices. They may transfer when you restore your new iPhone from a backup. Lifetime Unlimited can be restored on other compatible iPhones using the Apple Account used for the purchase.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <span class="faq-number" aria-hidden="true">06</span>
+          <div>
+            <h3>I bought Lifetime Unlimited, but the App doesn't show it.</h3>
+            <p>In AmiiNest, go to Settings and tap Restore Purchases. If it still doesn't appear, tap Sync with App Store in the Support section and sign in with the Apple Account you used to buy it.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <span class="faq-number" aria-hidden="true">07</span>
+          <div>
+            <h3>Writing failed. What should I do?</h3>
+            <p>Hold the tag near the top of your iPhone and follow the on-screen instructions. If the connection is lost during writing, move the same tag slightly when prompted so AmiiNest can reconnect and continue. A credit is used only if the write succeeds. If the App says the tag is locked or has already been used, try a new blank NTAG215 tag.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <span class="faq-number" aria-hidden="true">08</span>
+          <div>
+            <h3>Which iPhones are supported?</h3>
+            <p>AmiiNest requires a compatible iPhone with NFC support running iOS 18 or later.</p>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <section class="card">
-      <h2>Contact Support</h2>
-      <p>If your question isn't answered above, email us. Including your iPhone model, iOS version, AmiiNest version, and a screenshot helps us help you faster.</p>
-      <p class="contact"><a href="mailto:support@tunacake.com">support@tunacake.com</a></p>
+    <section class="card" aria-labelledby="contact-title">
+      <h2 id="contact-title">Contact Support</h2>
+      <p>If your question isn't answered above, we'd be happy to hear from you.</p>
+      <div class="contact-panel">
+        <p>Please include your iPhone model, iOS version, AmiiNest version, and a screenshot if possible. These details help us investigate your issue.</p>
+        <a class="contact-email" href="mailto:support@tunacake.com">support@tunacake.com</a>
+      </div>
     </section>
   </main>
-  <footer class="wrap">
-    <a href="/privacy/">AmiiNest Privacy Policy</a> · <a href="/support/">AmiiNest Support</a><br>
-    © 2026 TunaCake LLC. All rights reserved.
+  <footer class="wrap site-footer">
+    <nav class="footer-links" aria-label="Footer navigation">
+      <a href="/privacy/">AmiiNest Privacy Policy</a>
+      <span class="footer-separator" aria-hidden="true"></span>
+      <a href="/support/" aria-current="page">AmiiNest Support</a>
+    </nav>
+    <p class="footer-copyright">© 2026 TunaCake LLC. All rights reserved.</p>
   </footer>
 </body>
 </html>
